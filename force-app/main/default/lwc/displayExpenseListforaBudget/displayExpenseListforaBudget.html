@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Expenses List" icon-name="standard:account">
+        <!--Budget Dropdown-->
+        <lightning-combobox
+            onchange={handleBudgetChange}
+            label="Select Budget"
+            value={selectedBudgetId}
+            placeholder="Select a Budget"
+            options={budgetOptions}>
+        </lightning-combobox>
+
+        <template if:true={expenses}>
+            <lightning-datatable
+                key-field="Id"
+                data={expenses}
+                columns={columns}>
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>
